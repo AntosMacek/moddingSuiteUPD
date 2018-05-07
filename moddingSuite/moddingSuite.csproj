@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED8773BC-C0F3-45E2-A182-07A06260F1F7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>moddingSuite</RootNamespace>
+    <AssemblyName>moddingSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>moddingSuite.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zlib">
+      <HintPath>..\References\Ionic.Zlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BL\DDS\DDS.cs" />
+    <Compile Include="BL\DDS\DDSHelper.cs" />
+    <Compile Include="BL\Ess\EssReader.cs" />
+    <Compile Include="BL\Ess\EssWriter.cs" />
+    <Compile Include="BL\ImageService\BlockDXT\AlphaBlockDXT5.cs" />
+    <Compile Include="BL\ImageService\BlockDXT\BlockDXT1.cs" />
+    <Compile Include="BL\ImageService\BlockDXT\BlockDXT5.cs" />
+    <Compile Include="BL\ImageService\Color16.cs" />
+    <Compile Include="BL\ImageService\ColorBlock.cs" />
+    <Compile Include="BL\Mesh\MeshReader.cs" />
+    <Compile Include="BL\Ndf\INdfReader.cs" />
+    <Compile Include="BL\Ndf\INdfWriter.cs" />
+    <Compile Include="BL\Ndf\NdfbinReader.cs" />
+    <Compile Include="BL\Ndf\NdfbinWriter.cs" />
+    <Compile Include="BL\Ndf\NdfTextWriter.cs" />
+    <Compile Include="BL\Scenario\ScenarioExtensions.cs" />
+    <Compile Include="BL\Scenario\ScenarioReader.cs" />
+    <Compile Include="BL\Scenario\ScenarioWriter.cs" />
+    <Compile Include="BL\TGV\TgvBitmapReader.cs" />
+    <Compile Include="BL\TGV\TgvDDSReader.cs" />
+    <Compile Include="BL\TGV\TgvDDSWriter.cs" />
+    <Compile Include="BL\DDS\PixelFormats.cs" />
+    <Compile Include="BL\DDS\FourCC.cs" />
+    <Compile Include="BL\ImageService\Color32.cs" />
+    <Compile Include="BL\ImageService\RawImage.cs" />
+    <Compile Include="BL\SavManager.cs" />
+    <Compile Include="BL\TGV\TgvReader.cs" />
+    <Compile Include="BL\TGV\TgvWriter.cs" />
+    <Compile Include="Model\Common\Md5Hash.cs" />
+    <Compile Include="Model\Common\MeshTriangularFace.cs" />
+    <Compile Include="Model\Edata\EdataDir.cs" />
+    <Compile Include="Model\Edata\EdataEntity.cs" />
+    <Compile Include="Model\Edata\EdataContentFile.cs" />
+    <Compile Include="Model\Edata\EdataFileType.cs" />
+    <Compile Include="Model\Mesh\MeshContentFile.cs" />
+    <Compile Include="Model\Mesh\MeshFile.cs" />
+    <Compile Include="Model\Mesh\MeshHeader.cs" />
+    <Compile Include="Model\Mesh\MeshHeaderEntry.cs" />
+    <Compile Include="Model\Mesh\MeshHeaderEntryWithCount.cs" />
+    <Compile Include="Model\Mesh\MeshSubHeader.cs" />
+    <Compile Include="Model\Ndfbin\ChangeManager\FlatChangeEntry.cs" />
+    <Compile Include="Model\Ndfbin\ChangeManager\ChangeEntryBase.cs" />
+    <Compile Include="Model\Ndfbin\ChangeManager\MapChangeEntry.cs" />
+    <Compile Include="Model\Ndfbin\ChangeManager\NdfChangeManager.cs" />
+    <Compile Include="Model\Ndfbin\ChangeManager\Enum.cs" />
+    <Compile Include="Model\Ndfbin\ChangeManager\ObjectReferenceChangeEntry.cs" />
+    <Compile Include="Model\Ndfbin\CollectionItemValueHolder.cs" />
+    <Compile Include="Model\Ndfbin\INdfScriptSerializable.cs" />
+    <Compile Include="Model\Ndfbin\IValueHolder.cs" />
+    <Compile Include="Model\Ndfbin\MapValueHolder.cs" />
+    <Compile Include="Model\Ndfbin\NdfBinary.cs" />
+    <Compile Include="Model\Ndfbin\NdfHeader.cs" />
+    <Compile Include="Model\Ndfbin\NdfClass.cs" />
+    <Compile Include="Model\Ndfbin\NdfFooter.cs" />
+    <Compile Include="Model\Ndfbin\NdfFooterEntry.cs" />
+    <Compile Include="Model\Ndfbin\NdfObject.cs" />
+    <Compile Include="Model\Ndfbin\NdfProperty.cs" />
+    <Compile Include="Model\Ndfbin\NdfPropertyValue.cs" />
+    <Compile Include="Model\Ndfbin\NdfStringReference.cs" />
+    <Compile Include="Model\Ndfbin\NdfTran.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfBlob.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfColor128.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfBoolean.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfCollection.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfColor32.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfDouble.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfEugFloat2.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfEugInt2.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfFileNameString.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfGuid.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfHash.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfInt16.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfLong.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfTime64.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfUInt16.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfInt32.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfInt8.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfLocalisationHash.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfMap.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfMapList.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfNull.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfObjectReference.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfString.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfTrans.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfUInt32.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfSingle.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfUnkown.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfVector.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfWideString.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfZipBlob.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfTrippleInt.cs" />
+    <Compile Include="Model\Ndfbin\Types\NdfType.cs" />
+    <Compile Include="Model\Ndfbin\Types\NdfTypeManager.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfFlatValueWrapper.cs" />
+    <Compile Include="Model\Ndfbin\Types\AllTypes\NdfValueWrapper.cs" />
+    <Compile Include="Model\Sav\SavFile.cs" />
+    <Compile Include="Model\Scenario\Area.cs" />
+    <Compile Include="Model\Scenario\AreaClipped.cs" />
+    <Compile Include="Model\Scenario\AreaColletion.cs" />
+    <Compile Include="Model\Scenario\AreaContent.cs" />
+    <Compile Include="Model\Scenario\AreaFile.cs" />
+    <Compile Include="Model\Scenario\AreaVertex.cs" />
+    <Compile Include="Model\Scenario\ScenarioFile.cs" />
+    <Compile Include="Model\Textures\TgvFile.cs" />
+    <Compile Include="Model\Textures\TgvMipMap.cs" />
+    <Compile Include="Model\Trad\TradEntry.cs" />
+    <Compile Include="BL\TradManager.cs" />
+    <Compile Include="BL\SettingsManager.cs" />
+    <Compile Include="Model\Settings\Settings.cs" />
+    <Compile Include="Util\Geometry.cs" />
+    <Compile Include="Util\Utils.cs" />
+    <Compile Include="ViewModel\About\AboutViewModel.cs" />
+    <Compile Include="ViewModel\Base\ObjectWrapperViewModel.cs" />
+    <Compile Include="ViewModel\Edata\DirectoryViewModel.cs" />
+    <Compile Include="ViewModel\Edata\FileSystemItemViewModel.cs" />
+    <Compile Include="ViewModel\Edata\FileSystemOverviewViewModelBase.cs" />
+    <Compile Include="ViewModel\Edata\FileViewModel.cs" />
+    <Compile Include="ViewModel\Edata\GameSpaceViewModel.cs" />
+    <Compile Include="ViewModel\Edata\WorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\ArmourDamageViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\ObjectCopyResultViewModel.cs" />
+    <Compile Include="ViewModel\Scenario\ScenarioEditorViewModel.cs" />
+    <Compile Include="ViewModel\UnhandledException\UnhandledExceptionViewModel.cs" />
+    <Compile Include="ViewModel\Filter\FilterDiscriminator.cs" />
+    <Compile Include="ViewModel\Filter\PropertyFilterExpression.cs" />
+    <Compile Include="ViewModel\Media\MoviePlaybackViewModel.cs" />
+    <Compile Include="ViewModel\Edata\EdataFileViewModel.cs" />
+    <Compile Include="ViewModel\Edata\EdataManagerViewModel.cs" />
+    <Compile Include="ViewModel\Base\ActionCommand.cs" />
+    <Compile Include="ViewModel\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModel\Mesh\MeshEditorViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\AddCollectionItemViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\ListEditorViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\NdfEditorMainViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\NdfClassViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\NdfObjectViewModel.cs" />
+    <Compile Include="ViewModel\Ndf\ReferenceSearchResultViewModel.cs" />
+    <Compile Include="ViewModel\Trad\TradFileViewModel.cs" />
+    <Compile Include="ViewModel\VersionManager\VersionFileViewModel.cs" />
+    <Compile Include="ViewModel\VersionManager\VersionInfoViewModel.cs" />
+    <Compile Include="ViewModel\VersionManager\VersionManagerViewModel.cs" />
+    <Compile Include="View\Common\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\UnhandledExceptionView.xaml.cs">
+      <DependentUpon>UnhandledExceptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Edata\EdataFileView.xaml.cs">
+      <DependentUpon>EdataFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DialogProvider\DialogProvider.cs" />
+    <Compile Include="View\DialogProvider\IViewMap.cs" />
+    <Compile Include="View\DialogProvider\ViewInstance.cs" />
+    <Compile Include="View\DialogProvider\ViewMap.cs" />
+    <Compile Include="View\Extension\BindingProxy.cs" />
+    <Compile Include="View\Extension\BoolToVisibilityCollapsedConverter.cs" />
+    <Compile Include="View\Extension\ByteToKiloByteConverter.cs" />
+    <Compile Include="View\Extension\Color32ValueConverter.cs" />
+    <Compile Include="View\Extension\ColorToBrushConverter.cs" />
+    <Compile Include="View\Extension\EdataFileTypeToImageConverter.cs" />
+    <Compile Include="View\Extension\EditingControlDataTemplateSelector.cs" />
+    <Compile Include="View\Extension\LeftMarginMultiplierConverter.cs" />
+    <Compile Include="View\Extension\LocalisationHashValueConverter.cs" />
+    <Compile Include="View\Extension\Masking.cs" />
+    <Compile Include="View\Common\MoviePlaybackView.xaml.cs">
+      <DependentUpon>MoviePlaybackView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Extension\TreeViewExtensions.cs" />
+    <Compile Include="View\Extension\TreeViewItemExtensions.cs" />
+    <Compile Include="View\Mesh\MeshView.xaml.cs">
+      <DependentUpon>MeshView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\BlobEditingTemplate.xaml.cs">
+      <DependentUpon>BlobEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\FloatPairEditingTemplate.xaml.cs">
+      <DependentUpon>FloatPairEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\LocaleHashEditingTemplate.xaml.cs">
+      <DependentUpon>LocaleHashEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\StringTableEditingTemplate.xaml.cs">
+      <DependentUpon>StringTableEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\TransTableReferenceEditingTemplate.xaml.cs">
+      <DependentUpon>TransTableReferenceEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\VectorEditingTemplate.xaml.cs">
+      <DependentUpon>VectorEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\AddCollectionItemView.xaml.cs">
+      <DependentUpon>AddCollectionItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\ArmourDamageTableWindowView.xaml.cs">
+      <DependentUpon>ArmourDamageTableWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\InstanceWindowView.xaml.cs">
+      <DependentUpon>InstanceWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\InstanceView.xaml.cs">
+      <DependentUpon>InstanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\ListEditorWindow.xaml.cs">
+      <DependentUpon>ListEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\ListViewer.xaml.cs">
+      <DependentUpon>ListViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\NdfbinView.xaml.cs">
+      <DependentUpon>NdfbinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\BooleanEditingTemplate.xaml.cs">
+      <DependentUpon>BooleanEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\ColorPickerEditingTemplate.xaml.cs">
+      <DependentUpon>ColorPickerEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\FloatEditingTemplate.xaml.cs">
+      <DependentUpon>FloatEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\GuidEditingTemplate.xaml.cs">
+      <DependentUpon>GuidEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\Int32EditingTemplate.xaml.cs">
+      <DependentUpon>Int32EditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\MapEditingTemplate.xaml.cs">
+      <DependentUpon>MapEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\ObjectReferenceEditingTemplate.xaml.cs">
+      <DependentUpon>ObjectReferenceEditingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\ValueEditing\UInt32EditingTemaplte.xaml.cs">
+      <DependentUpon>UInt32EditingTemaplte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\TradFileView.xaml.cs">
+      <DependentUpon>TradFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\ObjectCopyResultView.xaml.cs">
+      <DependentUpon>ObjectCopyResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Viewer\ReferenceSearchResultView.xaml.cs">
+      <DependentUpon>ReferenceSearchResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ndfbin\Scenario\ScenarioView.xaml.cs">
+      <DependentUpon>ScenarioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpinningWheel\Enums\RotateDirection.cs" />
+    <Compile Include="View\SpinningWheel\SpinningWheel.cs" />
+    <Compile Include="View\VersionManager\VersionManagerView.xaml.cs">
+      <DependentUpon>VersionManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneEditor\Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\Editor.Designer.cs">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneEditor\Markers\CreaterMarker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\Markers\Marker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\Markers\VertexMarker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\Icon.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\IconType.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\Possession.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\Property.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\PropertyPanels\IconProperty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\PropertyPanels\IconProperty.Designer.cs">
+      <DependentUpon>IconProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\PropertyPanels\SpawnProperty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\PropertyPanels\SpawnProperty.Designer.cs">
+      <DependentUpon>SpawnProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\PropertyPanels\ZoneProperty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\PropertyPanels\ZoneProperty.Designer.cs">
+      <DependentUpon>ZoneProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneEditor\ScenarioItems\ScenarioItem.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\Spawn.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\SpawnType.cs" />
+    <Compile Include="ZoneEditor\ScenarioItems\Zone.cs" />
+    <Compile Include="ZoneEditor\Outline.cs" />
+    <Compile Include="ZoneEditor\PanAndZoom.cs" />
+    <Compile Include="ZoneEditor\ZoneEditorData.cs" />
+    <Page Include="View\Common\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Common\UnhandledExceptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Edata\EdataFileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Edata\EdataManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BL\Compressing\Compressing.cs" />
+    <Compile Include="View\Edata\EdataManagerView.xaml.cs">
+      <DependentUpon>EdataManagerView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Common\MoviePlaybackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Mesh\MeshView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\BlobEditingTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\FloatPairEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\LocaleHashEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\StringTableEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\TransTableReferenceEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\VectorEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\AddCollectionItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\ArmourDamageTableWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\InstanceWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\InstanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\ListEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\ListViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\NdfbinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\BooleanEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\ColorPickerEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\FloatEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\GuidEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\Int32EditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\MapEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\ObjectReferenceEditingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\ValueEditing\UInt32EditingTemaplte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Common\TradFileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\ObjectCopyResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Viewer\ReferenceSearchResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ndfbin\Scenario\ScenarioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VersionManager\VersionManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Edata\EdataHeader.cs" />
+    <Compile Include="BL\EdataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoneEditor\Editor.resx">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoneEditor\Form1.resx" />
+    <EmbeddedResource Include="ZoneEditor\ScenarioItems\PropertyPanels\IconProperty.resx">
+      <DependentUpon>IconProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoneEditor\ScenarioItems\PropertyPanels\SpawnProperty.resx">
+      <DependentUpon>SpawnProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoneEditor\ScenarioItems\PropertyPanels\ZoneProperty.resx">
+      <DependentUpon>ZoneProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Model\Scenario\Area classes.cd" />
+    <None Include="Model\Ndfbin\ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\open_in_browser-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\reuse-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\add_file-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\play-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\about-26.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\zip-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\text-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\save-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\empty_filter-26.png" />
+    <Resource Include="View\Images\filled_filter-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\View_Details-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\google_code-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\picture-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\question-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\package-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\add_property-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\delete_property-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Add_Row-26.png" />
+    <Resource Include="View\Images\Delete_Row-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\refresh_shield-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\gplv3-127x51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\about.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="View\Images\splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\export-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\import-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Generic_Sorting2-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\3d_printer-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\google_web_search-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\copy-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\exception.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\error-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\donate.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\puzzle-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ZoneEditor\Images\_2x2_port_wonsan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ZoneEditor\Images\CV.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\FOB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ZoneEditor\Images\hopAndGlory.png" />
+    <Resource Include="ZoneEditor\Images\N_Hamhung_Gamescon_v11.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_2x3_anbyon.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_2x3_esashi.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_2x3_hwaseong.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_2x3_montagne_2.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_2x3_tohoku.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x2_sangju.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x3_chongju.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x3_gangjin.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x3_pyeongtaek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ZoneEditor\Images\_2x3_boseong.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x2_boryeong.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x2_haenam.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x2_montagne_3.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x2_taean.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x2_taebuko.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x3_montagne_1.png" />
+    <EmbeddedResource Include="ZoneEditor\Images\_3x3_montagne_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\geometry-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\folder-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\news-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\folder_Closed_32xMD.png" />
+    <Resource Include="View\Images\folder_Open_32xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\folder_Closed_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\InfoTooltip_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\folder_Open_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\typography_Uppercase_T_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\flag_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\resource_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\ASCube_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Binary_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Bracket_Curved_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\ExcelWorksheetView_11748.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\AppearanceEditorPart_6014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\DisassemblyWindow_6536.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\BookmarkNext_2389.png" />
+    <Resource Include="View\Images\BookmarkPrevious_2391.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Save_6530.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\filter_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Recording_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\UnloadedProject_8303.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Open_6296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\pushpin_16xLG.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
